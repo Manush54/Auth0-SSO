@@ -43,5 +43,10 @@ export default {
       this.message = JSON.stringify(error, null, 2);
     }
   },
+  created() {
+    if (!this.$auth0.isAuthenticated) {
+      this.$router.push("/not-authorized");
+    }
+  },
 };
 </script>
